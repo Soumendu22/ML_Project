@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberBuddy</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/landing.css') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="container header">
+      <nav class="nav">
+        <div class="logo">
+          <h2>CyberBuddy.</h2>
+        </div>
+
+        <div class="nav_menu" id="nav_menu">
+          <button class="close_btn" id="close_btn">
+            <i class="ri-close-fill"></i>
+          </button>
+
+          <ul class="nav_menu_list">
+            <p style="font-size: larger">Hello&nbsp;</p>
+            <p style="font-size: larger; color: #335eea; margin-right: 25px">
+              <b>{{ user_name }}</b>
+            </p>
+            <!-- Logout Form -->
+            <form
+              action="{{ url_for('logout') }}"
+              method="post"
+              style="display: inline"
+            >
+              <button type="submit" class="btn">Logout</button>
+            </form>
+          </ul>
+        </div>  
+      </nav>
+    </header>
+  </body>
+</html>
