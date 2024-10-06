@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberBuddy</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/landing.css') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="container header">
+      <nav class="nav">
+        <div class="logo">
+          <h2>CyberBuddy.</h2>
+        </div>
+
+        <div class="nav_menu" id="nav_menu">
+          <button class="close_btn" id="close_btn">
+            <i class="ri-close-fill"></i>
+          </button>
+
+          <ul class="nav_menu_list">
+            <li class="nav_menu_item">
+              <a href="#" class="nav_menu_link">About</a>
+            </li>
+            <li class="nav_menu_item">
+              <a href="#featured_info" class="nav_menu_link">service</a>
+            </li>
+            <li class="nav_menu_item">
+              <a href="#contact" class="nav_menu_link">contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="toggle_btn" id="toggle_btn">
+          <i class="ri-menu-line"></i>
+        </button>
+      </nav>
+    </header>
+
+    <section class="wrapper">
+      <div class="container">
+        <div class="grid-cols-2">
+          <div class="grid-item-1">
+            <h1 class="main-heading">
+              Welcome to <span>CyberBuddy.</span>
+              <br />
+              Keeping Your Digital Life Secure.
+            </h1>
+            <p class="info-text">
+              Guarding Every Transaction, Securing Every Step.
+            </p>
+
+            <div class="btn_wrapper">
+              <button class="btn view_more_btn" id="openSignupDialog">
+                Signup <i class="ri-arrow-right-line"></i>
+              </button>
+              <button class="btn view_more_btn" id="openLoginDialog">
+                Login <i class="ri-arrow-right-line"></i>
+              </button>
+              <a href="https://cybercrime.gov.in/" target="_blank">
+                <button class="documentation_btn">Cybercell Portal</button></a
+              >
+            </div>
+          </div>
+          <div class="grid-item-2">
+            <div class="team_img_wrapper">
+              <img
+                src="{{ url_for('static', filename='img/team.svg') }}"
+                alt="Fraud Detection"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flash messages section -->
+    {% if request.args.get('message') %}
+    <div
+      class="alert alert-{{ request.args.get('category') }} alert-dismissible fade show"
+      role="alert"
+    >
+      {{ request.args.get('message') }}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
+
+    <section class="wrapper">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <div class="grid-cols-3">
+          <div class="grid-col-item">
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div class="featured_info" id="featured_info">
+              <span class="title">Fraud Detection</span>
+              <p>
+                Advanced algorithms analyze your transactions to detect
+                suspicious activities in real-time. Stay ahead of potential
+                threats with accurate and timely fraud alerts.
+              </p>
+            </div>
+          </div>
+          <div class="grid-col-item">
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div class="featured_info">
+              <span class="title">Anonymous Link Verification</span>
+              <p>
+                Generate anonymous links to securely share information without
+                revealing your identity. Protect your privacy while
+                communicating online.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-col-item">
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                />
+              </svg>
+            </div>
+            <div class="featured_info">
+              <span class="title">Fraud Transaction Alerts</span>
+              <p>
+                Receive instant notifications for any fraudulent transaction
+                attempts. Ensure your financial activities are safe with
+                proactive alert systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="fcontainer">
+        <p>&copy; 2024 CyberBuddy. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Signup Dialog -->
+    <!-- Signup Dialog -->
+    <div class="dialog" id="signupDialog">
+      <div class="dialog-content">
+        <span class="close-btn" id="closeSignupDialog">&times;</span>
+        <h2 class="dialog-heading">Sign Up</h2>
+        <form id="signupForm" action="{{ url_for('signup') }}" method="POST">
+          <div class="form_group">
+            <label for="signupName">Name:</label>
+            <input type="text" id="signupName" name="name" required />
+          </div>
+          <div class="form_group">
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" name="email" required />
+          </div>
+          <div class="form_group">
+            <label for="signupPassword">Password:</label>
+            <input
+              type="password"
+              id="signupPassword"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Login Dialog -->
+    <div class="dialog" id="loginDialog">
+      <div class="dialog-content">
+        <span class="close-btn" id="closeLoginDialog">&times;</span>
+        <h2 class="dialog-heading">Login</h2>
+        <form id="loginForm" action="{{ url_for('login') }}" method="POST">
+          <div class="form_group">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="email" required />
+          </div>
+          <div class="form_group">
+            <label for="loginPassword">Password:</label>
+            <input
+              type="password"
+              id="loginPassword"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Fraud Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/sms.css') }}"
+    />
+    <style>
+      /* Dialog box styling */
+      /* Dialog box styling */
+      .dialog {
+        display: none; /* Hidden by default */
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff; /* White background */
+        border: 1px solid #ccc; /* Border */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        z-index: 1000; /* Above other content */
+        width: 90%; /* Width of dialog */
+        max-width: 600px; /* Max width of dialog */
+        padding: 30px; /* Padding inside dialog */
+        overflow-y: auto; /* Scroll if content exceeds height */
+        height: auto; /* Auto height */
+        max-height: 80%; /* Max height */
+        text-align: left; /* Align text to left */
+      }
+
+      /* Overlay styling */
+      .overlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        z-index: 999; /* Below dialog */
+      }
+
+      /* Open dialog */
+      .show {
+        display: block; /* Show when active */
+      }
+
+      /* Button styles */
+      .btn {
+        background-color: #335eea; /* Primary button color */
+        color: #fff; /* Button text color */
+        border: none; /* No border */
+        padding: 10px 15px; /* Padding */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor */
+        font-size: 1rem; /* Font size */
+        transition: background-color 0.3s; /* Transition effect */
+        margin-top: 15px; /* Spacing above button */
+      }
+
+      .btn:hover {
+        background-color: #254ecb; /* Button hover color */
+      }
+
+      /* Paragraph styles */
+      .dialog p {
+        margin: 0.5rem 0; /* Margin for paragraphs */
+        line-height: 1.6; /* Line height */
+        font-size: 1rem; /* Font size */
+      }
+
+      /* Title styles */
+      .dialog h3 {
+        margin: 0 0 20px; /* Spacing below title */
+        font-size: 1.5rem; /* Title font size */
+        color: #333; /* Title color */
+      }
+
+      /* Add other existing styles below */
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Enter Email to Check for Phishing Email</h2>
+      <form method="POST">
+        <textarea
+          name="email_text"
+          class="textarea"
+          placeholder="Enter email here"
+          required
+          rows="5"
+        ></textarea>
+        <br />
+        <button type="submit" class="btn">Check</button>
+      </form>
+
+      {% if prediction %}
+      <div class="result">
+        <h3 class="{% if prediction == 'Phishing Email' %}red-text{% endif %}">
+          Result: {{ prediction }}
+        </h3>
+        <p>Email: {{ email }}</p>
+
+        {% if prediction == 'Phishing' %}
+        <div class="button-group">
+          <button
+            class="cbtn"
+            onclick="window.location.href='https://cybercrime.gov.in/'"
+          >
+            Report to Cyber Cell
+          </button>
+          <br />
+          <button class="documentation_btn" onclick="showDialog()">
+            View Steps to Report
+          </button>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay" onclick="closeDialog()"></div>
+
+    <!-- Dialog Box -->
+    <div id="dialog" class="dialog">
+      <h3>Steps to Raise a Complaint Against Phishing Emails</h3>
+      <p>
+        1. Collect evidence of the Email, including screenshots or forwarded
+        messages.
+      </p>
+      <p>
+        2. Visit the Cyber Cell website at
+        <a href="https://cybercrime.gov.in/" target="_blank"
+          >cybercrime.gov.in</a
+        >.
+      </p>
+      <p>
+        3. Navigate to the complaint section and fill in the required details.
+      </p>
+      <p>
+        4. Submit the form and keep track of your complaint reference number.
+      </p>
+      <button class="btn" onclick="closeDialog()">Close</button>
+    </div>
+
+    <script>
+      function showDialog() {
+        document.getElementById("dialog").classList.add("show");
+        document.getElementById("overlay").classList.add("show");
+      }
+
+      function closeDialog() {
+        document.getElementById("dialog").classList.remove("show");
+        document.getElementById("overlay").classList.remove("show");
+      }
+    </script>
+  </body>
+</html>

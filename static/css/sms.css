@@ -1,0 +1,141 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center form container */
+.form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Form heading */
+.form-container h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Form labels */
+label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-align: left;
+}
+
+/* Form input (textarea) */
+.textarea {
+  width: 100%;
+  height: 150px; /* Increased height */
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Dropdown */
+select {
+  padding: 0.75rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Submit button */
+.btn {
+  background-color: #335eea;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #254ecb;
+}
+/* Container to hold both buttons */
+.button-group {
+  display: flex;
+  justify-content: center; /* Center both buttons */
+  gap: 10px; /* Space between buttons */
+  margin-top: 1rem; /* Space above the buttons */
+}
+
+/* Common styles for both buttons */
+.cbtn,
+.documentation_btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none; /* Remove underline for documentation_btn */
+}
+
+/* Report button styles */
+.cbtn {
+  background-color: #335eea;
+  color: #fff;
+  border: none;
+}
+
+/* Report button hover effect */
+.cbtn:hover {
+  background-color: #254ecb;
+}
+
+/* Documentation button styles */
+.documentation_btn {
+  background-color: #e1e7fc;
+  color: #0e2a86;
+  border: none;
+  box-shadow: 0 0.5rem 1.5rem rgba(22, 28, 45, 0.1);
+}
+
+/* Documentation button hover effect */
+.documentation_btn:hover {
+  background-color: #d0d9f9;
+}
+.red-text {
+  color: red;
+}
+
+/* Result display */
+.result {
+  margin-top: 1.5rem;
+}
+
+.result h3 {
+  color: #555;
+}
+
+.result p {
+  font-size: 1.2rem;
+  color: #335eea;
+}
